@@ -1,0 +1,270 @@
+﻿body
+{
+    font-family: Times New Roman;
+}
+
+br { clear: both; }
+label { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+select { float: left; font-family: Arial, Helvetica, sans-serif; font-size: small; }
+
+input
+{
+    margin-bottom: .5em;
+}
+
+.stdText
+{
+   /*
+  background-color:336699; 
+  border-color: Fuchsia; 
+  */
+  border-style:inset; 
+  border-width:2px; 
+}
+
+.smallText
+{
+    font-size: x-small;
+}
+
+#txtTitle
+{
+    width: 30em;
+}
+
+input.btn {   
+    color:#050;   
+    font: bold 84%'trebuchet ms',helvetica,sans-serif;   
+    background-color: #fed;   
+}
+
+input.error { border: 1px solid red; }
+
+select { margin-bottom: .5em;  }
+select.error { border: 1px solid red; }
+
+
+label.error {
+	background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/unchecked.gif') no-repeat;
+	padding-left: 16px;
+	margin-left: .3em;
+    float: left;
+}
+
+label.valid {
+	background: url('http://dev.jquery.com/view/trunk/plugins/validate/demo/images/checked.gif') no-repeat;
+	display: block;
+	width: 16px;
+	height: 16px;
+    float: left;
+}
+
+
+.TopImages
+{
+    text-align: center;
+}
+
+.Title
+{
+    text-align: center;
+    font-size: 4em;
+    color:#008000; 
+}
+
+.SmallTitle
+{
+    text-align: center;
+    font-size: 3em;
+    color:#008000; 
+}
+
+.xSmallTitle
+{
+    text-align: center;
+    font-size: 2em;
+    color:#008000; 
+}
+
+.smallLink
+{
+     font-size:x-small;
+}
+
+.logonDiv
+{
+}
+
+.TopImage
+{
+    border: 0;
+    width: 6em;
+    height: 6em;
+    background-repeat:no-repeat;
+}
+
+.LogonUserList
+{
+    width: 15em;
+}
+
+.package
+{
+    width: 17em;
+    height: 17em;
+	font-size:17em;
+    background-image: url(res/boxes.jpg);
+    background-repeat:no-repeat;
+}
+
+.password {
+    margin-left: .5em;
+    float: left;
+}
+
+.GoRight {
+    float: right;
+}
+
+.GoLeft {
+    float: left;
+}
+
+#modalBackground
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+ 
+	z-index: 9;
+	background-color:#333333;
+	display: none;
+	opacity: 0.40;
+	filter: alpha(opacity=40)
+}
+
+.EditTable {
+	width: 40em;
+	height: 25em;
+}
+
+#modalWindow
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+ 
+	z-index: 10;
+	background-color: white;
+	display: none;
+	width: 40em;
+	height: 25em;
+	border: 1px solid blue;
+}
+
+.TableRightData
+{
+    color:#008000;
+}
+
+.TableHiddenData
+{
+    color:Blue;
+}
+
+/* tables */
+.ztablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+
+thead tr th, tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+
+.header {
+	background-image: url(/Images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+.headerSortUp {
+	background-image: url(/Images/asc.gif);
+}
+.headerSortDown {
+	background-image: url(/Images/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+
+.Loading
+{
+    float: right;
+}
+
+
+.content-block, .content-block-tab, .content-block-modal, .content-block-body, .content-block-head, .content-block-head h2 
+{
+	background: #efefef;
+}
+
+.content-block-body 
+{
+	padding: 8px 5px 10px 15px; 
+}
+
+.content-block-body table 
+{
+	display: block;
+	width: auto !important;
+	margin: 0 0 0 0 !important;
+	overflow: visible !important;
+}
+
+.content-block-body table thead tr th 
+{
+    font-size: 1em;
+    text-align: center;
+	position: relative;
+	border: solid 1px #333;
+	overflow: visible;
+	color: red;
+}
+.content-block-body table tr td
+{
+	border: solid 1px green;
+	overflow: visible;
+}
+
+#pageNavigation table tr td
+{
+    border: none;
+}
+
+@media print {
+    .content-block-body
+    {
+	    width: 100% !important;
+	    margin: 0 0 0 0 !important;
+	    overflow: visible !important;
+    }
+}

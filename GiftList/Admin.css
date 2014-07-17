@@ -1,0 +1,49 @@
+﻿.SmallTitle
+{
+    text-align: center;
+    font-size: 3em;
+    color:#008000; 
+}
+
+.xSmallTitle
+{
+    text-align: center;
+    font-size: 2em;
+    color:#008000; 
+}
+
+/*
+table.adminGrid
+{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+*/
+
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
+           
+#dialog-form form fieldset
+{
+    padding: 8px;
+}
+
+#dialog-form form fieldset legend
+{
+    padding: 8px;
+}
+
+#dialog-form form fieldset label
+{
+    line-height: 1.6em;
+    color: Green;
+}
+
+#dialog-form form fieldset input
+{
+    line-height: 1.6em;
+    -webkit-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow:0 1px 4px rgba(0,0,0,0.3);
+	box-shadow:0 1px 4px rgba(0,0,0,0.3);
+	border: 1px solid #ababab;
+}
