@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Gift Page</title>
+    <link href="css/baseStyle.css" rel="stylesheet" type="text/css" />
+    <script src="jqui/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="jqui/js/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+    <script src="http://dev.jquery.com/view/trunk/plugins/validate/lib/jquery.delegate.js" type="text/javascript"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="JavaScript/jquery.validate.js"></script>
+    <script src="JavaScript/jsLib.js" type="text/javascript"></script>
+	<script type="text/javascript" src="JavaScript/ShowList.js"></script>
+    <script src="JavaScript/querystring.js" type="text/javascript"></script>
+	<script src="JavaScript/jquery-jtemplates.js" type="text/javascript"></script>
+	<script src="JavaScript/jquery.tablesorter.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="loading" class="Loading"><img src="Images/ajax-loader.gif" alt="Loading..." /></div>
+	<div style="text-align: center" id="eventImage"></div>
+    <div class="SmallTitle" id="eventTitle"></div>
+
+	<label for="cboRecipList">Gift List For:&nbsp;</label>
+	<select id="cboRecipList" name="cboRecipList" class="LogonUserList">
+		<option value="-1">All Gifts</option>
+		<option value="-2">All Reserved by you</option>
+		<option value="-3">All unreserved gifts</option>
+		<option value="-4">All available, or reserved by you</option>
+	</select>&nbsp;
+    <input type="button" id="btnAdmin" value="Enter Administration Page" />
+	<br />
+		<div id="modalWindow">
+        <form id="frmItem">
+    		<table class="EditTable" border="10" bordercolor="#FF0000" bordercolorlight="#008000" bordercolordark="#FF6600" >
+			<tr>
+				<td>
+                    <b><label for="cboGiftFor">Gift For:&nbsp;</label></b>
+                    <div style="display: none"><input id="txtAuthor" type="text" /></div>
+                </td>
+	            <td colspan="2">
+                    <select id="cboGiftFor" name="cboGiftFor" class="LogonUserList"></select>
+                    <input class="stdText" id="txtGiftFor" type="text" size="40" readonly="readonly" />
+                </td>
+			</tr>
+			<tr>
+				<td><b>Title</b></td>
+				<td colspan="2"><input maxlength="120" class="stdText" id="txtTitle" name="txtTitle" type="text" size="50" value="" /></td>
+			</tr>
+			<tr>
+				<td><b>Description</b></td>
+				<td colspan="2"><textarea class="stdText" id="txtDescription" name="txtDescription" rows="4" cols="50"></textarea></td>
+			</tr>
+			<tr>
+			<td><b>URL</b></td>
+				<td colspan="2"><textarea class="stdText" id="txtURL" rows="2" cols="50"></textarea></td>
+			</tr>
+			<tr>
+				<td><b>Color</b></td>
+				<td colspan="2"><input maxlength="30" class="stdText" id="txtColor" type="text" size="30" /></td>
+			</tr>
+			<tr>
+				<td><b>Size</b></td>
+				<td colspan="2"><input maxlength="30" class="stdText" id="txtSize" type="text" size="30" /></td>
+			</tr>
+			<tr>
+				<td><b>Taken By</b></td>
+				<td>
+					<select class="stdText" id="cboTakenBy">
+						<option value="0" selected>Nobody</option>
+					</select>
+				</td>
+				<td>Got it: <input type="checkbox" id="chkAquired" /></td>
+			</tr>
+			<tr>
+				<td><b>Hide From</b></td>
+				<td colspan="2">
+					<select class="stdText" id="cboHideFrom">
+						<option value="-1">Everybody</option>
+						<option value="0" selected>Nobody</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><b>Giver Comment <div class="smallText">(Will not be visible to recipient; use to communicate secretly with other gift givers)</div></b></td>
+				<td colspan="2">
+                    <textarea class="stdText" id="txtGiverComment" rows="2" cols="50"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="button" value="Save" id="cmdSave" />
+					<input type="button" value="Save &amp; Add a new one" id="cmdSaveAdd" />
+					<input type="button" value="Cancel" id="cmdCancel" />
+					<input type="button" value="Delete" id="cmdDelete" />
+				</td>
+			</tr>
+		</table>
+        </form>
+	</div>
+	<div id="modalBackground"></div>
+	<span class="GoLeft"><input type="checkbox" name="chkShowDetails" checked id="chkShowDetails" />Show Details</span>
+	<span class="GoRight"><input type="checkbox"" name="chkExcludeGotIt" id="chkExcludeGotIt" />Exclude "Got It"</span>
+	<br />
+		<table id="glist" border="10" bordercolor="#FF0000" bordercolorlight="#008000" bordercolordark="s" width="100%">
+			<thead>
+				<tr>
+					<th width="10%"><b>Recipient</b></th>
+					<th><b>Item Title</b></th>
+                    <th><b>Size</b></th>
+                    <th><b>Color</b></th>
+					<th><b>Details</b></th>
+					<th><b>Taken By</b></th>
+					<th width="10px"><b>Got It</b></th>
+					<th width="10%"><b>Entered By</b></th>
+					<th width="10%"><b>Created On</b></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+	</table>
+    <input type="button" id="btnAdd" value="Add Item" />
+	<div id="TheList" name="TheList"></div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Gift Page</title>
+    <!--<link href="baseStyle.css" rel="stylesheet" type="text/css" />-->
+    <link href="css/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+    <link href="css/smoothness/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+
+    <!--<link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>-->
+    <script src="jqui/js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+	<script src="http://jquery-ui.googlecode.com/svn/tags/latest/external/jquery.bgiframe-2.1.2.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/i18n/jquery-ui-i18n.min.js" type="text/javascript"></script>
+    <link href="css/Admin.css" rel="stylesheet" type="text/css" />
+    <script src="jqui/js/jquery.json-2.3.min" type="text/javascript"></script>
+    <script src="jqui/js/i18n/grid.locale-en.js"" type="text/javascript"></script>
+    <script src="jqui/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script src="JavaScript/jsLib.js" type="text/javascript"></script>
+	<script type="text/javascript" src="JavaScript/Admin.js"></script>
+    <script src="JavaScript/querystring.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="loading" class="Loading"><img src="Images/ajax-loader.gif" alt="Loading..." /></div>
+	<div style="text-align: center" id="eventImage"></div>
+    <div class="SmallTitle" id="eventTitle"></div>
+    <div class="xSmallTitle"">Administration</div>
+    <div id="header-body" class="content-block-body">
+        <div id="content-grid">
+            <table id="adminGrid"></table>
+            <div id="pageNavigation"></div>
+        </div>
+        <input type="button" value="New User" id="newUser"/>
+    </div>
+    <div id="dialog-form" title="Add/Edit User">
+        <p class="validateTips"></p>
+        <form>
+            <fieldset>
+                <input type="hidden" id="rp_key" />
+                <label>ID: </label><span id="id"></span>
+                <label for="LastName" class="ui-helper-clearfix">Last Name</label>
+                <input type="text" name="LastName" id="LastName" maxlength="30" class="text ui-widget-content ui-corner-all" />
+                <label for="FirstName" class="ui-helper-clearfix">First Name</label>
+                <input type="text" name="FirstName" id="FirstName" maxlength="30" class="text ui-widget-content ui-corner-all" />
+                <label for="Password" class="ui-helper-clearfix">Password</label>
+                <input type="text" name="Password" id="Password" maxlength="30" class="text ui-widget-content ui-corner-all" />
+                <label for="email" class="ui-helper-clearfix">eMail</label>
+                <input type="text" name="email" id="email" maxlength="48" class="text ui-widget-content ui-corner-all" />
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

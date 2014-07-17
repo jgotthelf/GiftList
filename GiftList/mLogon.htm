@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head> 
+	<title>GiftList Mobile Login</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+    <script type="text/javascript" src="JavaScript/mLogon.js"></script>
+</head>
+<body>
+<div data-role="page" class="type-interior">
+	<div data-role="header" data-theme="b">
+		<h1>GiftList Mobile Login</h1>
+	</div>
+	<div data-role="content">
+			<div style="margin: 2em; display: block;">
+			<form id="login" data-ajax="false" runat="server">
+				<!--<h1 id="jqm-logo"><img src="Images/mobile/IncedoMobileLogo.png" alt="Incedo Mobile" /></h1>-->
+				<div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="txtUserName">Email Address:</label>
+					<input type="email" placeholder="e-mail address" id="txtEmail" maxlength="35" data-mini="false" data-theme="c"/>&nbsp;
+				</div>
+				<div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="txtPassword">Password:</label>
+					<input type="password" id="txtPassword" maxlength="35" placeholder="password" data-theme="c"/>&nbsp;
+				</div>
+                <input type="checkbox" name="chkRememberMe" id="chkRememberMe" class="custom" data-theme="c"/>
+                <label for="chkRememberMe">Remember Me</label>
+				<div data-mini="true" class="ui-block-a"><button type="button" id="btnLogon" data-mini="true" data-theme="b">Log In</button></div>
+			</form>
+			</div>
+			<div style="clear: both;"><br /></div>
+	</div>
+
+	<div data-role="footer" class="footer-docs" data-theme="c">
+		<p>&copy; 2011-2014 August Technologies, Inc.</p>
+	</div>
+</div>
+</body>
+</html>
