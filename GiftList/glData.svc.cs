@@ -96,7 +96,7 @@ namespace GiftList {
 
                     theList.Users.Add(user);
                 }
-            }
+            })
             return theList;
         }
 
@@ -109,6 +109,7 @@ namespace GiftList {
                             where r.Family.fm_key == fKey
                             orderby r.rp_lastname, r.rp_firstname
                             select new { r.rp_key, r.rp_lastname, r.rp_firstname };
+
                 foreach (var thisUser in users) {
                     if (thisUser.rp_lastname.Trim() == string.Empty)
                         theList.Users.Add(thisUser.rp_key.ToString(), thisUser.rp_firstname.Trim());
