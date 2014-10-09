@@ -1,16 +1,63 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <!--
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+        -->
+    <link href="css/cerulean-bootstrap.min.css" rel="stylesheet" />
+    <link href="css/augtech.css" rel="stylesheet" />
 </head>
 <body>
-    Welcome to the Gift Registry.  If you have an account, enter your last name & click Go, otherwise click "Sign Up"
-    <br />
-    <form action="lfn.aspx" method="post">
-        <INPUT name="txtFamily" size="13">
-        <INPUT name="cmdFamilyName" type="submit" value="Go">
-    </form>
-    <br /><br />
-    <a href="signup.htm">Sign Up (Not ready yet)</a>
+    <div id="page" class="container">
+        <header class="container">
+            <div id="menu" class="navbar navbar-default navbar-fixed-top">
+                <div class="navbar-header">
+                    <button class="btn btn-success navbar-toggle"
+                             data-toggle="collapse"
+                             data-target=".navbar-collapse"><span class="glyphicon glyphicon-chevron-down"></span></button> 
+                    <div id="logo">
+                        <a href="."><h4>GiftList 2000</h4></a>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav"><a href=".">About</a></li>
+                        <li class="nav"><a href=".">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section id="body" class="container col-md-10" >
+            <!--
+            <section class="row">
+                <img src="Wreath.gif" class="col-md-2 col-md-offset-2 img-thumbnail" />
+                <img src="totebag.jpg" class="col-md-2 img-thumbnail" />
+                <div class="hidden-sm">
+                    <img src="Wreath.gif" class="col-md-2 img-thumbnail" />
+                    <img src="totebag.jpg" class="col-md-2 img-thumbnail" />
+                    <img src="Wreath.gif" class="col-md-2 img-thumbnail" />
+                </div>
+            </section>
+                -->
+            <h1>GiftList 2000</h1>
+            <h4>Welcome to the Gift Registry.  If you have an account, enter your last name & click Go, otherwise click "Sign Up"</h4>
+            <br />
+            <form action="lfn.aspx" method="post">
+                <input name="txtFamily" size="13" />
+                <button class="btn btn-primary btn-sm" type="submit"><span class="glyphicon glyphicon-arrow-right"></span></button>
+            </form>
+            <br /><br />
+        </section>
+        <section id="body" class="container col-md-4">
+            <a href="signup.htm">Sign Up</a>
+        </section>
+    </div>
+    <footer class="container">
+        <hr />Copyright 2014, August Technologies, Inc.
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

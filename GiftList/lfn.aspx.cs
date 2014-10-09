@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace GiftList {
 	public partial class lfn : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
-            Response.Redirect("http://allgiftregistry.azurewebsites.net/logon.htm?f=" + Request.Form["txtFamily"]);
+            Response.Redirect("/logon.htm?f=" + Request.Form["txtFamily"]);
 		}
 	}
 }

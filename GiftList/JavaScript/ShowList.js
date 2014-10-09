@@ -58,10 +58,6 @@ $(function () {
 		}
 	});
 
-	//$('#modalWindow').onclick = OnModalWindowClick;
-
-	//var _rulesAdded = false;
-
 
 	$("#cmdSave").click(function () {
 		if (SaveDetail())
@@ -71,7 +67,7 @@ $(function () {
 
 	$("#cmdSaveAdd").click(function () {
 		if (SaveDetail()) {
-			newItem(); // $$('modalWindow').style.display = $$('modalBackground').style.display = 'none';
+			newItem();
 		}
 	});
 
@@ -432,7 +428,7 @@ function OnWindowResize() {
     var div = $$('modalWindow');
 
     div.style.left = Math.max((left + (GetWindowWidth() - div.offsetWidth) / 2), 0) + 'px';
-    div.style.top = $(window).scrollTop() + 20 + "px";
+    div.style.top = $(window).scrollTop() + 60 + "px";
 }
 
 

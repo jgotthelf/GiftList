@@ -70,9 +70,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.css" />
     <Content Include="Admin.htm" />
+    <Content Include="Admin.js" />
     <Content Include="AdminEdit.htm" />
+    <Content Include="ajax-loader.gif" />
+    <Content Include="asc.gif" />
     <Content Include="css\Admin.css" />
+    <Content Include="css\amelia-bootstrap.min.css" />
     <Content Include="css\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
     <Content Include="css\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
     <Content Include="css\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
@@ -91,6 +96,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\ellipsis-xbl.xml" />
+    <Content Include="css\augtech.css" />
     <Content Include="css\jquery-ui-1.8.16.custom.min.js" />
     <Content Include="css\le-frog\images\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
     <Content Include="css\le-frog\images\ui-bg_diagonals-thick_15_444444_40x40.png" />
@@ -136,8 +142,13 @@
     <Content Include="css\ui-lightness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\ui-lightness\jquery-ui-1.8.16.custom.css" />
     <Content Include="css\ui.jqgrid.css" />
+    <Content Include="css\united-bootstrap.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="desc.gif" />
+    <Content Include="dog_jing.wav" />
+    <Content Include="ellipsis-xbl.xml" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GiftList.Publish.xml" />
     <Content Include="glData.svc" />
     <Content Include="glMobile.htm" />
     <Content Include="Images\ajax-loader.gif" />
@@ -208,16 +219,22 @@
     <Content Include="jqui\js\jquery-ui-1.7.2.custom.min.js" />
     <Content Include="jqui\js\jquery-ui-1.8.16.custom.min.js" />
     <Content Include="jqui\js\jquery.jqGrid.min.js" />
+    <Content Include="jsLib.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="lfn.aspx" />
     <Content Include="Logon.htm" />
     <Content Include="css\baseStyle.css" />
+    <Content Include="Logon.js" />
     <Content Include="mLogon.htm" />
+    <Content Include="mlogon.js" />
     <Content Include="res\dog_jing.wav" />
     <Content Include="res\totebag.jpg" />
     <Content Include="res\Wreath.gif" />
     <Content Include="ShowList.htm" />
+    <Content Include="t.htm" />
+    <Content Include="totebag.jpg" />
+    <Content Include="ui.jqgrid.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -227,9 +244,11 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Wreath.gif" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="atiExtensions.cs" />
+    <Content Include="css\cerulean-bootstrap.min.css" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -277,6 +296,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap.css.map" />
+    <Content Include="GiftList.v2.ncrunchproject" />
     <None Include="jqui\js\jquery.json-2.3.min" />
     <None Include="Properties\PublishProfiles\AllGiftRegistry.pubxml" />
   </ItemGroup>

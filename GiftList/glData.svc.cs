@@ -96,7 +96,7 @@ namespace GiftList {
 
                     theList.Users.Add(user);
                 }
-            })
+            }
             return theList;
         }
 
