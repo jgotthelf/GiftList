@@ -4,83 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="xmaslistlegacyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="xmaslistlegacyModelStoreContainer">
-          <EntitySet Name="EventRecip" EntityType="xmaslistlegacyModel.Store.EventRecip" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Events" EntityType="xmaslistlegacyModel.Store.Events" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Families" EntityType="xmaslistlegacyModel.Store.Families" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="lists" EntityType="xmaslistlegacyModel.Store.lists" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="LogonLog" EntityType="xmaslistlegacyModel.Store.LogonLog" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="recipients" EntityType="xmaslistlegacyModel.Store.recipients" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="themes" EntityType="xmaslistlegacyModel.Store.themes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="vDisplayList" EntityType="xmaslistlegacyModel.Store.vDisplayList" store:Type="Views" store:Schema="dbo" store:Name="vDisplayList">
-            <DefiningQuery>SELECT 
-      [vDisplayList].[li_key] AS [li_key], 
-      [vDisplayList].[rp_fm_key] AS [rp_fm_key], 
-      [vDisplayList].[li_rp_key] AS [li_rp_key], 
-      [vDisplayList].[RecipientsName] AS [RecipientsName], 
-      [vDisplayList].[li_TakenBy] AS [li_TakenBy], 
-      [vDisplayList].[TakenByName] AS [TakenByName], 
-      [vDisplayList].[Author] AS [Author], 
-      [vDisplayList].[li_Author] AS [li_Author], 
-      [vDisplayList].[li_Title] AS [li_Title], 
-      [vDisplayList].[li_Desc] AS [li_Desc], 
-      [vDisplayList].[li_Aquired] AS [li_Aquired], 
-      [vDisplayList].[Url] AS [Url], 
-      [vDisplayList].[EnteredBy] AS [EnteredBy]
-      FROM [dbo].[vDisplayList] AS [vDisplayList]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="vMailLst" EntityType="xmaslistlegacyModel.Store.vMailLst" store:Type="Views" store:Schema="dbo" store:Name="vMailLst">
-            <DefiningQuery>SELECT 
-      [vMailLst].[rp_email] AS [rp_email], 
-      [vMailLst].[rp_firstname] AS [rp_firstname], 
-      [vMailLst].[rp_password] AS [rp_password], 
-      [vMailLst].[rp_lastname] AS [rp_lastname], 
-      [vMailLst].[fm_name] AS [fm_name]
-      FROM [dbo].[vMailLst] AS [vMailLst]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="fk_er_ev_key" Association="xmaslistlegacyModel.Store.fk_er_ev_key">
-            <End Role="Events" EntitySet="Events" />
-            <End Role="EventRecip" EntitySet="EventRecip" />
-          </AssociationSet>
-          <AssociationSet Name="fk_er_rp_key" Association="xmaslistlegacyModel.Store.fk_er_rp_key">
-            <End Role="recipients" EntitySet="recipients" />
-            <End Role="EventRecip" EntitySet="EventRecip" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ev_fm_key" Association="xmaslistlegacyModel.Store.fk_ev_fm_key">
-            <End Role="Families" EntitySet="Families" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="fk_ev_tm_key" Association="xmaslistlegacyModel.Store.fk_ev_tm_key">
-            <End Role="themes" EntitySet="themes" />
-            <End Role="Events" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="fk_li_Author" Association="xmaslistlegacyModel.Store.fk_li_Author">
-            <End Role="recipients" EntitySet="recipients" />
-            <End Role="lists" EntitySet="lists" />
-          </AssociationSet>
-          <AssociationSet Name="fk_li_HideFrom" Association="xmaslistlegacyModel.Store.fk_li_HideFrom">
-            <End Role="recipients" EntitySet="recipients" />
-            <End Role="lists" EntitySet="lists" />
-          </AssociationSet>
-          <AssociationSet Name="fk_li_rp_key" Association="xmaslistlegacyModel.Store.fk_li_rp_key">
-            <End Role="recipients" EntitySet="recipients" />
-            <End Role="lists" EntitySet="lists" />
-          </AssociationSet>
-          <AssociationSet Name="fk_li_takenby" Association="xmaslistlegacyModel.Store.fk_li_takenby">
-            <End Role="recipients" EntitySet="recipients" />
-            <End Role="lists" EntitySet="lists" />
-          </AssociationSet>
-          <AssociationSet Name="fk_rp_fm_key" Association="xmaslistlegacyModel.Store.fk_rp_fm_key">
-            <End Role="Families" EntitySet="Families" />
-            <End Role="recipients" EntitySet="recipients" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="xmaslistlegacyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="EventRecip">
           <Key>
             <PropertyRef Name="er_key" />
           </Key>
-          <Property Name="er_key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="er_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="er_rp_key" Type="int" Nullable="false" />
           <Property Name="er_ev_key" Type="int" Nullable="false" />
         </EntityType>
@@ -88,8 +17,8 @@
           <Key>
             <PropertyRef Name="ev_key" />
           </Key>
-          <Property Name="ev_key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ev_desc" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="ev_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ev_desc" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="ev_date" Type="datetime" Nullable="false" />
           <Property Name="ev_fm_key" Type="int" Nullable="false" />
           <Property Name="ev_tm_key" Type="int" Nullable="false" />
@@ -98,36 +27,37 @@
           <Key>
             <PropertyRef Name="fm_key" />
           </Key>
-          <Property Name="fm_key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="fm_name" Type="char" Nullable="false" MaxLength="24" />
-          <Property Name="fm_url" Type="char" Nullable="false" MaxLength="24" />
+          <Property Name="fm_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fm_name" Type="char" MaxLength="24" Nullable="false" />
+          <Property Name="fm_url" Type="char" MaxLength="24" Nullable="false" />
           <Property Name="fm_admin_rp_key" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="lists">
           <Key>
             <PropertyRef Name="li_key" />
           </Key>
-          <Property Name="li_key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="li_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="li_rp_key" Type="int" Nullable="false" />
-          <Property Name="li_title" Type="char" Nullable="false" MaxLength="120" />
-          <Property Name="li_desc" Type="varchar" Nullable="false" MaxLength="2000" />
+          <Property Name="li_title" Type="char" MaxLength="120" Nullable="false" />
+          <Property Name="li_desc" Type="varchar" MaxLength="2000" Nullable="false" />
           <Property Name="li_takenby" Type="int" />
-          <Property Name="li_year" Type="char" Nullable="false" MaxLength="4" />
+          <Property Name="li_year" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="li_hidefrom" Type="int" />
           <Property Name="li_author" Type="int" Nullable="false" />
           <Property Name="li_aquired" Type="tinyint" Nullable="false" />
-          <Property Name="li_url" Type="varchar" Nullable="false" MaxLength="750" />
-          <Property Name="li_Size" Type="varchar" Nullable="false" MaxLength="30" />
-          <Property Name="li_Color" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="li_url" Type="varchar" MaxLength="750" Nullable="false" />
+          <Property Name="li_Size" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="li_Color" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="li_CreateDate" Type="datetime" Nullable="false" />
           <Property Name="li_TouchDate" Type="datetime" Nullable="false" />
           <Property Name="li_GiverComment" Type="varchar(max)" />
+          <Property Name="li_Archive" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="LogonLog">
           <Key>
             <PropertyRef Name="ll_LogonLog_Key" />
           </Key>
-          <Property Name="ll_LogonLog_Key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ll_LogonLog_Key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ll_rp_key" Type="int" Nullable="false" />
           <Property Name="ll_sid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ll_Create_Date" Type="smalldatetime" />
@@ -136,82 +66,34 @@
           <Key>
             <PropertyRef Name="rp_key" />
           </Key>
-          <Property Name="rp_key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="rp_lastname" Type="char" Nullable="false" MaxLength="30" />
-          <Property Name="rp_password" Type="char" Nullable="false" MaxLength="20" />
-          <Property Name="rp_background" Type="char" Nullable="false" MaxLength="48" />
-          <Property Name="rp_sound" Type="char" Nullable="false" MaxLength="48" />
-          <Property Name="rp_firstname" Type="char" Nullable="false" MaxLength="30" />
-          <Property Name="rp_email" Type="char" Nullable="false" MaxLength="48" />
+          <Property Name="rp_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rp_lastname" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="rp_password" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="rp_background" Type="char" MaxLength="48" Nullable="false" />
+          <Property Name="rp_sound" Type="char" MaxLength="48" Nullable="false" />
+          <Property Name="rp_firstname" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="rp_email" Type="char" MaxLength="48" Nullable="false" />
           <Property Name="rp_fm_key" Type="int" Nullable="false" />
           <Property Name="rp_recipient" Type="tinyint" Nullable="false" />
           <Property Name="rp_giver" Type="tinyint" Nullable="false" />
+          <Property Name="rp_Archive" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="themes">
           <Key>
             <PropertyRef Name="tm_key" />
           </Key>
-          <Property Name="tm_key" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="tm_name" Type="char" Nullable="false" MaxLength="40" />
-          <Property Name="tm_sound" Type="char" Nullable="false" MaxLength="40" />
-          <Property Name="tm_topimage" Type="char" Nullable="false" MaxLength="40" />
-          <Property Name="tm_bordercolor" Type="char" Nullable="false" MaxLength="7" />
-          <Property Name="tm_bordercolorlight" Type="char" Nullable="false" MaxLength="7" />
-          <Property Name="tm_bordercolordark" Type="char" Nullable="false" MaxLength="7" />
+          <Property Name="tm_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tm_name" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="tm_sound" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="tm_topimage" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="tm_bordercolor" Type="char" MaxLength="7" Nullable="false" />
+          <Property Name="tm_bordercolorlight" Type="char" MaxLength="7" Nullable="false" />
+          <Property Name="tm_bordercolordark" Type="char" MaxLength="7" Nullable="false" />
           <Property Name="tm_bordersize" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'xmaslist.dbo.vDisplayList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="vDisplayList">
-          <Key>
-            <PropertyRef Name="li_key" />
-            <PropertyRef Name="rp_fm_key" />
-            <PropertyRef Name="li_rp_key" />
-            <PropertyRef Name="RecipientsName" />
-            <PropertyRef Name="li_TakenBy" />
-            <PropertyRef Name="TakenByName" />
-            <PropertyRef Name="Author" />
-            <PropertyRef Name="li_Title" />
-            <PropertyRef Name="li_Desc" />
-            <PropertyRef Name="li_Aquired" />
-            <PropertyRef Name="Url" />
-            <PropertyRef Name="EnteredBy" />
-          </Key>
-          <Property Name="li_key" Type="int" Nullable="false" />
-          <Property Name="rp_fm_key" Type="int" Nullable="false" />
-          <Property Name="li_rp_key" Type="int" Nullable="false" />
-          <Property Name="RecipientsName" Type="varchar" Nullable="false" MaxLength="61" />
-          <Property Name="li_TakenBy" Type="char" Nullable="false" MaxLength="30" />
-          <Property Name="TakenByName" Type="varchar" Nullable="false" MaxLength="61" />
-          <Property Name="Author" Type="varchar" Nullable="false" MaxLength="61" />
-          <Property Name="li_Author" Type="int" />
-          <Property Name="li_Title" Type="char" Nullable="false" MaxLength="120" />
-          <Property Name="li_Desc" Type="varchar" Nullable="false" MaxLength="2000" />
-          <Property Name="li_Aquired" Type="tinyint" Nullable="false" />
-          <Property Name="Url" Type="varchar" Nullable="false" MaxLength="750" />
-          <Property Name="EnteredBy" Type="varchar" Nullable="false" MaxLength="61" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'xmaslist.dbo.vMailLst' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="vMailLst">
-          <Key>
-            <PropertyRef Name="rp_email" />
-            <PropertyRef Name="rp_firstname" />
-            <PropertyRef Name="rp_password" />
-            <PropertyRef Name="rp_lastname" />
-            <PropertyRef Name="fm_name" />
-          </Key>
-          <Property Name="rp_email" Type="char" Nullable="false" MaxLength="48" />
-          <Property Name="rp_firstname" Type="char" Nullable="false" MaxLength="30" />
-          <Property Name="rp_password" Type="char" Nullable="false" MaxLength="20" />
-          <Property Name="rp_lastname" Type="char" Nullable="false" MaxLength="30" />
-          <Property Name="fm_name" Type="char" Nullable="false" MaxLength="24" />
-        </EntityType>
         <Association Name="fk_er_ev_key">
-          <End Role="Events" Type="xmaslistlegacyModel.Store.Events" Multiplicity="1" />
-          <End Role="EventRecip" Type="xmaslistlegacyModel.Store.EventRecip" Multiplicity="*" />
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="EventRecip" Type="Self.EventRecip" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Events">
               <PropertyRef Name="ev_key" />
@@ -222,8 +104,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_er_rp_key">
-          <End Role="recipients" Type="xmaslistlegacyModel.Store.recipients" Multiplicity="1" />
-          <End Role="EventRecip" Type="xmaslistlegacyModel.Store.EventRecip" Multiplicity="*" />
+          <End Role="recipients" Type="Self.recipients" Multiplicity="1" />
+          <End Role="EventRecip" Type="Self.EventRecip" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="recipients">
               <PropertyRef Name="rp_key" />
@@ -234,8 +116,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_ev_fm_key">
-          <End Role="Families" Type="xmaslistlegacyModel.Store.Families" Multiplicity="1" />
-          <End Role="Events" Type="xmaslistlegacyModel.Store.Events" Multiplicity="*" />
+          <End Role="Families" Type="Self.Families" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Families">
               <PropertyRef Name="fm_key" />
@@ -246,8 +128,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_ev_tm_key">
-          <End Role="themes" Type="xmaslistlegacyModel.Store.themes" Multiplicity="1" />
-          <End Role="Events" Type="xmaslistlegacyModel.Store.Events" Multiplicity="*" />
+          <End Role="themes" Type="Self.themes" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="themes">
               <PropertyRef Name="tm_key" />
@@ -258,8 +140,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_li_Author">
-          <End Role="recipients" Type="xmaslistlegacyModel.Store.recipients" Multiplicity="1" />
-          <End Role="lists" Type="xmaslistlegacyModel.Store.lists" Multiplicity="*" />
+          <End Role="recipients" Type="Self.recipients" Multiplicity="1" />
+          <End Role="lists" Type="Self.lists" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="recipients">
               <PropertyRef Name="rp_key" />
@@ -270,8 +152,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_li_HideFrom">
-          <End Role="recipients" Type="xmaslistlegacyModel.Store.recipients" Multiplicity="0..1" />
-          <End Role="lists" Type="xmaslistlegacyModel.Store.lists" Multiplicity="*" />
+          <End Role="recipients" Type="Self.recipients" Multiplicity="0..1" />
+          <End Role="lists" Type="Self.lists" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="recipients">
               <PropertyRef Name="rp_key" />
@@ -282,8 +164,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_li_rp_key">
-          <End Role="recipients" Type="xmaslistlegacyModel.Store.recipients" Multiplicity="1" />
-          <End Role="lists" Type="xmaslistlegacyModel.Store.lists" Multiplicity="*" />
+          <End Role="recipients" Type="Self.recipients" Multiplicity="1" />
+          <End Role="lists" Type="Self.lists" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="recipients">
               <PropertyRef Name="rp_key" />
@@ -294,8 +176,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_li_takenby">
-          <End Role="recipients" Type="xmaslistlegacyModel.Store.recipients" Multiplicity="0..1" />
-          <End Role="lists" Type="xmaslistlegacyModel.Store.lists" Multiplicity="*" />
+          <End Role="recipients" Type="Self.recipients" Multiplicity="0..1" />
+          <End Role="lists" Type="Self.lists" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="recipients">
               <PropertyRef Name="rp_key" />
@@ -306,8 +188,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_rp_fm_key">
-          <End Role="Families" Type="xmaslistlegacyModel.Store.Families" Multiplicity="1" />
-          <End Role="recipients" Type="xmaslistlegacyModel.Store.recipients" Multiplicity="*" />
+          <End Role="Families" Type="Self.Families" Multiplicity="1" />
+          <End Role="recipients" Type="Self.recipients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Families">
               <PropertyRef Name="fm_key" />
@@ -317,162 +199,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="dt_addtosourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchSourceSafeINI" Type="varchar" Mode="In" />
-          <Parameter Name="vchProjectName" Type="varchar" Mode="In" />
-          <Parameter Name="vchComment" Type="varchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_addtosourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchSourceSafeINI" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchProjectName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="dt_adduserobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="dt_adduserobject_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchProperty" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_checkinobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="chObjectType" Type="char" Mode="In" />
-          <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
-          <Parameter Name="vchComment" Type="varchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
-          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
-          <Parameter Name="iActionFlag" Type="int" Mode="In" />
-          <Parameter Name="txStream1" Type="text" Mode="In" />
-          <Parameter Name="txStream2" Type="text" Mode="In" />
-          <Parameter Name="txStream3" Type="text" Mode="In" />
-        </Function>
-        <Function Name="dt_checkinobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="chObjectType" Type="char" Mode="In" />
-          <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
-          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
-          <Parameter Name="iActionFlag" Type="int" Mode="In" />
-          <Parameter Name="txStream1" Type="text" Mode="In" />
-          <Parameter Name="txStream2" Type="text" Mode="In" />
-          <Parameter Name="txStream3" Type="text" Mode="In" />
-        </Function>
-        <Function Name="dt_checkoutobject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="chObjectType" Type="char" Mode="In" />
-          <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
-          <Parameter Name="vchComment" Type="varchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
-          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
-          <Parameter Name="iActionFlag" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_checkoutobject_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="chObjectType" Type="char" Mode="In" />
-          <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchComment" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
-          <Parameter Name="iVCSFlags" Type="int" Mode="In" />
-          <Parameter Name="iActionFlag" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_displayoaerror" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="iObject" Type="int" Mode="In" />
-          <Parameter Name="iresult" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_displayoaerror_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="iObject" Type="int" Mode="In" />
-          <Parameter Name="iresult" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_droppropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_dropuserobjectbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_generateansiname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="name" Type="varchar" Mode="InOut" />
-        </Function>
-        <Function Name="dt_getobjwithprop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="property" Type="varchar" Mode="In" />
-          <Parameter Name="value" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_getobjwithprop_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="property" Type="varchar" Mode="In" />
-          <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="dt_getpropertiesbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_getpropertiesbyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_getpropertiesbyid_vcs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-          <Parameter Name="value" Type="varchar" Mode="InOut" />
-        </Function>
-        <Function Name="dt_getpropertiesbyid_vcs_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-          <Parameter Name="value" Type="nvarchar" Mode="InOut" />
-        </Function>
-        <Function Name="dt_isundersourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
-          <Parameter Name="iWhoToo" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_isundersourcecontrol_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
-          <Parameter Name="iWhoToo" Type="int" Mode="In" />
-        </Function>
-        <Function Name="dt_removefromsourcecontrol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="dt_setpropertybyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-          <Parameter Name="value" Type="varchar" Mode="In" />
-          <Parameter Name="lvalue" Type="image" Mode="In" />
-        </Function>
-        <Function Name="dt_setpropertybyid_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="property" Type="varchar" Mode="In" />
-          <Parameter Name="uvalue" Type="nvarchar" Mode="In" />
-          <Parameter Name="lvalue" Type="image" Mode="In" />
-        </Function>
-        <Function Name="dt_validateloginparams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_validateloginparams_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="dt_vcsenabled" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="dt_verstamp006" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="dt_verstamp007" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="dt_whocheckedout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="chObjectType" Type="char" Mode="In" />
-          <Parameter Name="vchObjectName" Type="varchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="varchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="varchar" Mode="In" />
-        </Function>
-        <Function Name="dt_whocheckedout_u" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="chObjectType" Type="char" Mode="In" />
-          <Parameter Name="vchObjectName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchLoginName" Type="nvarchar" Mode="In" />
-          <Parameter Name="vchPassword" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="Lists_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="RecipientsPK" Type="int" Mode="In" />
-          <Parameter Name="LoggedInUser" Type="int" Mode="In" />
-          <Parameter Name="FamiliesPK" Type="int" Mode="In" />
-          <Parameter Name="Sort" Type="varchar" Mode="In" />
-        </Function>
+        <EntityContainer Name="xmaslistlegacyModelStoreContainer">
+          <EntitySet Name="EventRecip" EntityType="Self.EventRecip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Families" EntityType="Self.Families" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lists" EntityType="Self.lists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogonLog" EntityType="Self.LogonLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="recipients" EntityType="Self.recipients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="themes" EntityType="Self.themes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_er_ev_key" Association="Self.fk_er_ev_key">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventRecip" EntitySet="EventRecip" />
+          </AssociationSet>
+          <AssociationSet Name="fk_er_rp_key" Association="Self.fk_er_rp_key">
+            <End Role="recipients" EntitySet="recipients" />
+            <End Role="EventRecip" EntitySet="EventRecip" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ev_fm_key" Association="Self.fk_ev_fm_key">
+            <End Role="Families" EntitySet="Families" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ev_tm_key" Association="Self.fk_ev_tm_key">
+            <End Role="themes" EntitySet="themes" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="fk_li_Author" Association="Self.fk_li_Author">
+            <End Role="recipients" EntitySet="recipients" />
+            <End Role="lists" EntitySet="lists" />
+          </AssociationSet>
+          <AssociationSet Name="fk_li_HideFrom" Association="Self.fk_li_HideFrom">
+            <End Role="recipients" EntitySet="recipients" />
+            <End Role="lists" EntitySet="lists" />
+          </AssociationSet>
+          <AssociationSet Name="fk_li_rp_key" Association="Self.fk_li_rp_key">
+            <End Role="recipients" EntitySet="recipients" />
+            <End Role="lists" EntitySet="lists" />
+          </AssociationSet>
+          <AssociationSet Name="fk_li_takenby" Association="Self.fk_li_takenby">
+            <End Role="recipients" EntitySet="recipients" />
+            <End Role="lists" EntitySet="lists" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rp_fm_key" Association="Self.fk_rp_fm_key">
+            <End Role="Families" EntitySet="Families" />
+            <End Role="recipients" EntitySet="recipients" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -483,8 +254,6 @@
           <EntitySet Name="Families" EntityType="xmaslistlegacyModel.Family" />
           <EntitySet Name="recipients" EntityType="xmaslistlegacyModel.recipient" />
           <EntitySet Name="themes" EntityType="xmaslistlegacyModel.theme" />
-          <EntitySet Name="vDisplayLists" EntityType="xmaslistlegacyModel.vDisplayList" />
-          <EntitySet Name="vMailLsts" EntityType="xmaslistlegacyModel.vMailLst" />
           <AssociationSet Name="fk_er_ev_key" Association="xmaslistlegacyModel.fk_er_ev_key">
             <End Role="Event" EntitySet="Events" />
             <End Role="EventRecip" EntitySet="EventRecips" /></AssociationSet>
@@ -531,7 +300,7 @@
             <PropertyRef Name="ev_key" /></Key>
           <Property Type="Int32" Name="ev_key" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="ev_desc" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Type="DateTime" Name="ev_date" Nullable="false" />
+          <Property Type="DateTime" Name="ev_date" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="ev_fm_key" Nullable="false" />
           <Property Type="Int32" Name="ev_tm_key" Nullable="false" />
           <NavigationProperty Name="EventRecips" Relationship="xmaslistlegacyModel.fk_er_ev_key" FromRole="Event" ToRole="EventRecip" />
@@ -566,6 +335,7 @@
           <NavigationProperty Name="lists1" Relationship="xmaslistlegacyModel.fk_li_HideFrom" FromRole="recipient" ToRole="lists" />
           <NavigationProperty Name="lists2" Relationship="xmaslistlegacyModel.fk_li_rp_key" FromRole="recipient" ToRole="lists" />
           <NavigationProperty Name="lists3" Relationship="xmaslistlegacyModel.fk_li_takenby" FromRole="recipient" ToRole="lists" />
+          <Property Name="rp_Archive" Type="Byte" Nullable="false" />
           </EntityType>
         <EntityType Name="theme">
           <Key>
@@ -579,45 +349,6 @@
           <Property Type="String" Name="tm_bordercolordark" Nullable="false" MaxLength="7" FixedLength="true" Unicode="false" />
           <Property Type="Int32" Name="tm_bordersize" Nullable="false" />
           <NavigationProperty Name="Events" Relationship="xmaslistlegacyModel.fk_ev_tm_key" FromRole="theme" ToRole="Event" /></EntityType>
-        <EntityType Name="vDisplayList">
-          <Key>
-            <PropertyRef Name="li_key" />
-            <PropertyRef Name="rp_fm_key" />
-            <PropertyRef Name="li_rp_key" />
-            <PropertyRef Name="RecipientsName" />
-            <PropertyRef Name="li_TakenBy" />
-            <PropertyRef Name="TakenByName" />
-            <PropertyRef Name="Author" />
-            <PropertyRef Name="li_Title" />
-            <PropertyRef Name="li_Desc" />
-            <PropertyRef Name="li_Aquired" />
-            <PropertyRef Name="Url" />
-            <PropertyRef Name="EnteredBy" /></Key>
-          <Property Type="Int32" Name="li_key" Nullable="false" />
-          <Property Type="Int32" Name="rp_fm_key" Nullable="false" />
-          <Property Type="Int32" Name="li_rp_key" Nullable="false" />
-          <Property Type="String" Name="RecipientsName" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="li_TakenBy" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="TakenByName" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Author" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="li_Author" />
-          <Property Type="String" Name="li_Title" Nullable="false" MaxLength="120" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="li_Desc" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Type="Byte" Name="li_Aquired" Nullable="false" />
-          <Property Type="String" Name="Url" Nullable="false" MaxLength="750" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EnteredBy" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" /></EntityType>
-        <EntityType Name="vMailLst">
-          <Key>
-            <PropertyRef Name="rp_email" />
-            <PropertyRef Name="rp_firstname" />
-            <PropertyRef Name="rp_password" />
-            <PropertyRef Name="rp_lastname" />
-            <PropertyRef Name="fm_name" /></Key>
-          <Property Type="String" Name="rp_email" Nullable="false" MaxLength="48" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="rp_firstname" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="rp_password" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="rp_lastname" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="fm_name" Nullable="false" MaxLength="24" FixedLength="true" Unicode="false" /></EntityType>
         <Association Name="fk_er_ev_key">
           <End Type="xmaslistlegacyModel.Event" Role="Event" Multiplicity="1" />
           <End Type="xmaslistlegacyModel.EventRecip" Role="EventRecip" Multiplicity="*" />
@@ -664,7 +395,7 @@
           <Property Type="Int32" Name="ll_LogonLog_Key" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="Int32" Name="ll_rp_key" Nullable="false" />
           <Property Type="Guid" Name="ll_sid" Nullable="false" />
-          <Property Type="DateTime" Name="ll_Create_Date" />
+          <Property Type="DateTime" Name="ll_Create_Date" Precision="0" />
           <NavigationProperty Name="recipients" Relationship="xmaslistlegacyModel.fk_ll_rp_key" FromRole="LogonLog" ToRole="recipient" /></EntityType>
         <Association Name="fk_ll_rp_key">
           <End Type="xmaslistlegacyModel.recipient" Role="recipient" Multiplicity="1" />
@@ -693,9 +424,10 @@
           <NavigationProperty Name="TakenBy" Relationship="xmaslistlegacyModel.fk_li_takenby" FromRole="lists" ToRole="recipient" />
           <Property Type="String" Name="li_Size" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="li_Color" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="li_CreateDate" Nullable="false" />
-          <Property Type="DateTime" Name="li_TouchDate" Nullable="false" />
-          <Property Type="String" Name="li_GiverComment" MaxLength="Max" FixedLength="false" Unicode="false" /></EntityType>
+          <Property Type="DateTime" Name="li_CreateDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="li_TouchDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="li_GiverComment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="li_Archive" Type="Byte" Nullable="false" /></EntityType>
         <Association Name="fk_li_Author">
           <End Type="xmaslistlegacyModel.recipient" Role="recipient" Multiplicity="1" />
           <End Type="xmaslistlegacyModel.lists" Role="lists" Multiplicity="*" />
@@ -758,6 +490,7 @@
           <EntitySetMapping Name="recipients">
             <EntityTypeMapping TypeName="xmaslistlegacyModel.recipient">
               <MappingFragment StoreEntitySet="recipients">
+                <ScalarProperty Name="rp_Archive" ColumnName="rp_Archive" />
                 <ScalarProperty Name="rp_giver" ColumnName="rp_giver" />
                 <ScalarProperty Name="rp_recipient" ColumnName="rp_recipient" />
                 <ScalarProperty Name="rp_fm_key" ColumnName="rp_fm_key" />
@@ -781,30 +514,6 @@
                 <ScalarProperty Name="tm_sound" ColumnName="tm_sound" />
                 <ScalarProperty Name="tm_name" ColumnName="tm_name" />
                 <ScalarProperty Name="tm_key" ColumnName="tm_key" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="vDisplayLists">
-            <EntityTypeMapping TypeName="xmaslistlegacyModel.vDisplayList">
-              <MappingFragment StoreEntitySet="vDisplayList">
-                <ScalarProperty Name="EnteredBy" ColumnName="EnteredBy" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="li_Aquired" ColumnName="li_Aquired" />
-                <ScalarProperty Name="li_Desc" ColumnName="li_Desc" />
-                <ScalarProperty Name="li_Title" ColumnName="li_Title" />
-                <ScalarProperty Name="li_Author" ColumnName="li_Author" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="TakenByName" ColumnName="TakenByName" />
-                <ScalarProperty Name="li_TakenBy" ColumnName="li_TakenBy" />
-                <ScalarProperty Name="RecipientsName" ColumnName="RecipientsName" />
-                <ScalarProperty Name="li_rp_key" ColumnName="li_rp_key" />
-                <ScalarProperty Name="rp_fm_key" ColumnName="rp_fm_key" />
-                <ScalarProperty Name="li_key" ColumnName="li_key" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="vMailLsts">
-            <EntityTypeMapping TypeName="xmaslistlegacyModel.vMailLst">
-              <MappingFragment StoreEntitySet="vMailLst">
-                <ScalarProperty Name="fm_name" ColumnName="fm_name" />
-                <ScalarProperty Name="rp_lastname" ColumnName="rp_lastname" />
-                <ScalarProperty Name="rp_password" ColumnName="rp_password" />
-                <ScalarProperty Name="rp_firstname" ColumnName="rp_firstname" />
-                <ScalarProperty Name="rp_email" ColumnName="rp_email" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="LogonLog">
             <EntityTypeMapping TypeName="xmaslistlegacyModel.LogonLog">
               <MappingFragment StoreEntitySet="LogonLog">
@@ -815,6 +524,7 @@
           <EntitySetMapping Name="lists">
             <EntityTypeMapping TypeName="xmaslistlegacyModel.lists">
               <MappingFragment StoreEntitySet="lists">
+                <ScalarProperty Name="li_Archive" ColumnName="li_Archive" />
                 <ScalarProperty Name="li_GiverComment" ColumnName="li_GiverComment" />
                 <ScalarProperty Name="li_TouchDate" ColumnName="li_TouchDate" />
                 <ScalarProperty Name="li_CreateDate" ColumnName="li_CreateDate" />
@@ -846,6 +556,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
@@ -856,8 +567,6 @@
         <EntityTypeShape EntityType="xmaslistlegacyModel.Family" Width="1.5" PointX="3" PointY="0.5" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="xmaslistlegacyModel.recipient" Width="1.5" PointX="5.375" PointY="0.5" Height="4.2879036458333335" />
         <EntityTypeShape EntityType="xmaslistlegacyModel.theme" Width="1.5" PointX="0.75" PointY="0.75" Height="2.7494921874999996" />
-        <EntityTypeShape EntityType="xmaslistlegacyModel.vDisplayList" Width="1.5" PointX="9" PointY="0.75" Height="3.518697916666667" />
-        <EntityTypeShape EntityType="xmaslistlegacyModel.vMailLst" Width="1.5" PointX="9" PointY="4.875" Height="1.9802864583333335" />
         <AssociationConnector Association="xmaslistlegacyModel.fk_er_ev_key">
           <ConnectorPoint PointX="2.375" PointY="5.8410953776041667" />
           <ConnectorPoint PointX="4.125" PointY="5.8410953776041667" />

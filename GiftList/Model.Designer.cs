@@ -160,38 +160,6 @@ namespace GiftList
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<vDisplayList> vDisplayLists
-        {
-            get
-            {
-                if ((_vDisplayLists == null))
-                {
-                    _vDisplayLists = base.CreateObjectSet<vDisplayList>("vDisplayLists");
-                }
-                return _vDisplayLists;
-            }
-        }
-        private ObjectSet<vDisplayList> _vDisplayLists;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<vMailLst> vMailLsts
-        {
-            get
-            {
-                if ((_vMailLsts == null))
-                {
-                    _vMailLsts = base.CreateObjectSet<vMailLst>("vMailLsts");
-                }
-                return _vMailLsts;
-            }
-        }
-        private ObjectSet<vMailLst> _vMailLsts;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<LogonLog> LogonLog
         {
             get
@@ -263,22 +231,6 @@ namespace GiftList
         public void AddTothemes(theme theme)
         {
             base.AddObject("themes", theme);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the vDisplayLists EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTovDisplayLists(vDisplayList vDisplayList)
-        {
-            base.AddObject("vDisplayLists", vDisplayList);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the vMailLsts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTovMailLsts(vMailLst vMailLst)
-        {
-            base.AddObject("vMailLsts", vMailLst);
         }
     
         /// <summary>
@@ -965,7 +917,8 @@ namespace GiftList
         /// <param name="li_Color">Initial value of the li_Color property.</param>
         /// <param name="li_CreateDate">Initial value of the li_CreateDate property.</param>
         /// <param name="li_TouchDate">Initial value of the li_TouchDate property.</param>
-        public static lists Createlists(global::System.Int32 li_key, global::System.Int32 li_rp_key, global::System.String li_title, global::System.String li_desc, global::System.String li_year, global::System.Int32 li_author, global::System.Byte li_aquired, global::System.String li_url, global::System.String li_Size, global::System.String li_Color, global::System.DateTime li_CreateDate, global::System.DateTime li_TouchDate)
+        /// <param name="li_Archive">Initial value of the li_Archive property.</param>
+        public static lists Createlists(global::System.Int32 li_key, global::System.Int32 li_rp_key, global::System.String li_title, global::System.String li_desc, global::System.String li_year, global::System.Int32 li_author, global::System.Byte li_aquired, global::System.String li_url, global::System.String li_Size, global::System.String li_Color, global::System.DateTime li_CreateDate, global::System.DateTime li_TouchDate, global::System.Byte li_Archive)
         {
             lists lists = new lists();
             lists.li_key = li_key;
@@ -980,6 +933,7 @@ namespace GiftList
             lists.li_Color = li_Color;
             lists.li_CreateDate = li_CreateDate;
             lists.li_TouchDate = li_TouchDate;
+            lists.li_Archive = li_Archive;
             return lists;
         }
 
@@ -1349,6 +1303,30 @@ namespace GiftList
         private global::System.String _li_GiverComment;
         partial void Onli_GiverCommentChanging(global::System.String value);
         partial void Onli_GiverCommentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Byte li_Archive
+        {
+            get
+            {
+                return _li_Archive;
+            }
+            set
+            {
+                Onli_ArchiveChanging(value);
+                ReportPropertyChanging("li_Archive");
+                _li_Archive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("li_Archive");
+                Onli_ArchiveChanged();
+            }
+        }
+        private global::System.Byte _li_Archive;
+        partial void Onli_ArchiveChanging(global::System.Int16 value);
+        partial void Onli_ArchiveChanged();
 
         #endregion
 
@@ -1709,7 +1687,9 @@ namespace GiftList
         /// <param name="rp_fm_key">Initial value of the rp_fm_key property.</param>
         /// <param name="rp_recipient">Initial value of the rp_recipient property.</param>
         /// <param name="rp_giver">Initial value of the rp_giver property.</param>
-        public static recipient Createrecipient(global::System.Int32 rp_key, global::System.String rp_lastname, global::System.String rp_password, global::System.String rp_background, global::System.String rp_sound, global::System.String rp_firstname, global::System.String rp_email, global::System.Int32 rp_fm_key, global::System.Byte rp_recipient, global::System.Byte rp_giver)
+        /// /// <param name="rp_Archive">Initial value of the rp_Archive property.</param>
+        public static recipient Createrecipient(global::System.Int32 rp_key, global::System.String rp_lastname, global::System.String rp_password, global::System.String rp_background, global::System.String rp_sound, global::System.String rp_firstname, global::System.String rp_email, global::System.Int32 rp_fm_key, global::System.Byte rp_recipient,
+            global::System.Byte rp_giver, global::System.Byte rp_Archive)
         {
             recipient recipient = new recipient();
             recipient.rp_key = rp_key;
@@ -1722,6 +1702,7 @@ namespace GiftList
             recipient.rp_fm_key = rp_fm_key;
             recipient.rp_recipient = rp_recipient;
             recipient.rp_giver = rp_giver;
+            recipient.rp_Archive = rp_Archive;
             return recipient;
         }
 
@@ -1968,9 +1949,32 @@ namespace GiftList
                 Onrp_giverChanged();
             }
         }
+
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [DataMemberAttribute()]
+        public global::System.Byte rp_Archive {
+            get {
+                return _rp_Archive;
+            }
+            set {
+                Onrp_ArchiveChanging(value);
+                ReportPropertyChanging("rp_Archive");
+                _rp_Archive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("rp_Archive");
+                Onrp_ArchiveChanged();
+            }
+        }
+
         private global::System.Byte _rp_giver;
         partial void Onrp_giverChanging(global::System.Byte value);
         partial void Onrp_giverChanged();
+
+        private global::System.Byte _rp_Archive;
+        partial void Onrp_ArchiveChanging(global::System.Int16 value);
+        partial void Onrp_ArchiveChanged();
 
         #endregion
 
@@ -2414,579 +2418,6 @@ namespace GiftList
 
         #endregion
 
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="xmaslistlegacyModel", Name="vDisplayList")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class vDisplayList : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new vDisplayList object.
-        /// </summary>
-        /// <param name="li_key">Initial value of the li_key property.</param>
-        /// <param name="rp_fm_key">Initial value of the rp_fm_key property.</param>
-        /// <param name="li_rp_key">Initial value of the li_rp_key property.</param>
-        /// <param name="recipientsName">Initial value of the RecipientsName property.</param>
-        /// <param name="li_TakenBy">Initial value of the li_TakenBy property.</param>
-        /// <param name="takenByName">Initial value of the TakenByName property.</param>
-        /// <param name="author">Initial value of the Author property.</param>
-        /// <param name="li_Title">Initial value of the li_Title property.</param>
-        /// <param name="li_Desc">Initial value of the li_Desc property.</param>
-        /// <param name="li_Aquired">Initial value of the li_Aquired property.</param>
-        /// <param name="url">Initial value of the Url property.</param>
-        /// <param name="enteredBy">Initial value of the EnteredBy property.</param>
-        public static vDisplayList CreatevDisplayList(global::System.Int32 li_key, global::System.Int32 rp_fm_key, global::System.Int32 li_rp_key, global::System.String recipientsName, global::System.String li_TakenBy, global::System.String takenByName, global::System.String author, global::System.String li_Title, global::System.String li_Desc, global::System.Byte li_Aquired, global::System.String url, global::System.String enteredBy)
-        {
-            vDisplayList vDisplayList = new vDisplayList();
-            vDisplayList.li_key = li_key;
-            vDisplayList.rp_fm_key = rp_fm_key;
-            vDisplayList.li_rp_key = li_rp_key;
-            vDisplayList.RecipientsName = recipientsName;
-            vDisplayList.li_TakenBy = li_TakenBy;
-            vDisplayList.TakenByName = takenByName;
-            vDisplayList.Author = author;
-            vDisplayList.li_Title = li_Title;
-            vDisplayList.li_Desc = li_Desc;
-            vDisplayList.li_Aquired = li_Aquired;
-            vDisplayList.Url = url;
-            vDisplayList.EnteredBy = enteredBy;
-            return vDisplayList;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 li_key
-        {
-            get
-            {
-                return _li_key;
-            }
-            set
-            {
-                if (_li_key != value)
-                {
-                    Onli_keyChanging(value);
-                    ReportPropertyChanging("li_key");
-                    _li_key = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("li_key");
-                    Onli_keyChanged();
-                }
-            }
-        }
-        private global::System.Int32 _li_key;
-        partial void Onli_keyChanging(global::System.Int32 value);
-        partial void Onli_keyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 rp_fm_key
-        {
-            get
-            {
-                return _rp_fm_key;
-            }
-            set
-            {
-                if (_rp_fm_key != value)
-                {
-                    Onrp_fm_keyChanging(value);
-                    ReportPropertyChanging("rp_fm_key");
-                    _rp_fm_key = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("rp_fm_key");
-                    Onrp_fm_keyChanged();
-                }
-            }
-        }
-        private global::System.Int32 _rp_fm_key;
-        partial void Onrp_fm_keyChanging(global::System.Int32 value);
-        partial void Onrp_fm_keyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 li_rp_key
-        {
-            get
-            {
-                return _li_rp_key;
-            }
-            set
-            {
-                if (_li_rp_key != value)
-                {
-                    Onli_rp_keyChanging(value);
-                    ReportPropertyChanging("li_rp_key");
-                    _li_rp_key = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("li_rp_key");
-                    Onli_rp_keyChanged();
-                }
-            }
-        }
-        private global::System.Int32 _li_rp_key;
-        partial void Onli_rp_keyChanging(global::System.Int32 value);
-        partial void Onli_rp_keyChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String RecipientsName
-        {
-            get
-            {
-                return _RecipientsName;
-            }
-            set
-            {
-                if (_RecipientsName != value)
-                {
-                    OnRecipientsNameChanging(value);
-                    ReportPropertyChanging("RecipientsName");
-                    _RecipientsName = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("RecipientsName");
-                    OnRecipientsNameChanged();
-                }
-            }
-        }
-        private global::System.String _RecipientsName;
-        partial void OnRecipientsNameChanging(global::System.String value);
-        partial void OnRecipientsNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String li_TakenBy
-        {
-            get
-            {
-                return _li_TakenBy;
-            }
-            set
-            {
-                if (_li_TakenBy != value)
-                {
-                    Onli_TakenByChanging(value);
-                    ReportPropertyChanging("li_TakenBy");
-                    _li_TakenBy = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("li_TakenBy");
-                    Onli_TakenByChanged();
-                }
-            }
-        }
-        private global::System.String _li_TakenBy;
-        partial void Onli_TakenByChanging(global::System.String value);
-        partial void Onli_TakenByChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String TakenByName
-        {
-            get
-            {
-                return _TakenByName;
-            }
-            set
-            {
-                if (_TakenByName != value)
-                {
-                    OnTakenByNameChanging(value);
-                    ReportPropertyChanging("TakenByName");
-                    _TakenByName = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("TakenByName");
-                    OnTakenByNameChanged();
-                }
-            }
-        }
-        private global::System.String _TakenByName;
-        partial void OnTakenByNameChanging(global::System.String value);
-        partial void OnTakenByNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Author
-        {
-            get
-            {
-                return _Author;
-            }
-            set
-            {
-                if (_Author != value)
-                {
-                    OnAuthorChanging(value);
-                    ReportPropertyChanging("Author");
-                    _Author = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Author");
-                    OnAuthorChanged();
-                }
-            }
-        }
-        private global::System.String _Author;
-        partial void OnAuthorChanging(global::System.String value);
-        partial void OnAuthorChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> li_Author
-        {
-            get
-            {
-                return _li_Author;
-            }
-            set
-            {
-                Onli_AuthorChanging(value);
-                ReportPropertyChanging("li_Author");
-                _li_Author = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("li_Author");
-                Onli_AuthorChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _li_Author;
-        partial void Onli_AuthorChanging(Nullable<global::System.Int32> value);
-        partial void Onli_AuthorChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String li_Title
-        {
-            get
-            {
-                return _li_Title;
-            }
-            set
-            {
-                if (_li_Title != value)
-                {
-                    Onli_TitleChanging(value);
-                    ReportPropertyChanging("li_Title");
-                    _li_Title = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("li_Title");
-                    Onli_TitleChanged();
-                }
-            }
-        }
-        private global::System.String _li_Title;
-        partial void Onli_TitleChanging(global::System.String value);
-        partial void Onli_TitleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String li_Desc
-        {
-            get
-            {
-                return _li_Desc;
-            }
-            set
-            {
-                if (_li_Desc != value)
-                {
-                    Onli_DescChanging(value);
-                    ReportPropertyChanging("li_Desc");
-                    _li_Desc = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("li_Desc");
-                    Onli_DescChanged();
-                }
-            }
-        }
-        private global::System.String _li_Desc;
-        partial void Onli_DescChanging(global::System.String value);
-        partial void Onli_DescChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Byte li_Aquired
-        {
-            get
-            {
-                return _li_Aquired;
-            }
-            set
-            {
-                if (_li_Aquired != value)
-                {
-                    Onli_AquiredChanging(value);
-                    ReportPropertyChanging("li_Aquired");
-                    _li_Aquired = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("li_Aquired");
-                    Onli_AquiredChanged();
-                }
-            }
-        }
-        private global::System.Byte _li_Aquired;
-        partial void Onli_AquiredChanging(global::System.Byte value);
-        partial void Onli_AquiredChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Url
-        {
-            get
-            {
-                return _Url;
-            }
-            set
-            {
-                if (_Url != value)
-                {
-                    OnUrlChanging(value);
-                    ReportPropertyChanging("Url");
-                    _Url = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Url");
-                    OnUrlChanged();
-                }
-            }
-        }
-        private global::System.String _Url;
-        partial void OnUrlChanging(global::System.String value);
-        partial void OnUrlChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String EnteredBy
-        {
-            get
-            {
-                return _EnteredBy;
-            }
-            set
-            {
-                if (_EnteredBy != value)
-                {
-                    OnEnteredByChanging(value);
-                    ReportPropertyChanging("EnteredBy");
-                    _EnteredBy = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("EnteredBy");
-                    OnEnteredByChanged();
-                }
-            }
-        }
-        private global::System.String _EnteredBy;
-        partial void OnEnteredByChanging(global::System.String value);
-        partial void OnEnteredByChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="xmaslistlegacyModel", Name="vMailLst")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class vMailLst : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new vMailLst object.
-        /// </summary>
-        /// <param name="rp_email">Initial value of the rp_email property.</param>
-        /// <param name="rp_firstname">Initial value of the rp_firstname property.</param>
-        /// <param name="rp_password">Initial value of the rp_password property.</param>
-        /// <param name="rp_lastname">Initial value of the rp_lastname property.</param>
-        /// <param name="fm_name">Initial value of the fm_name property.</param>
-        public static vMailLst CreatevMailLst(global::System.String rp_email, global::System.String rp_firstname, global::System.String rp_password, global::System.String rp_lastname, global::System.String fm_name)
-        {
-            vMailLst vMailLst = new vMailLst();
-            vMailLst.rp_email = rp_email;
-            vMailLst.rp_firstname = rp_firstname;
-            vMailLst.rp_password = rp_password;
-            vMailLst.rp_lastname = rp_lastname;
-            vMailLst.fm_name = fm_name;
-            return vMailLst;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String rp_email
-        {
-            get
-            {
-                return _rp_email;
-            }
-            set
-            {
-                if (_rp_email != value)
-                {
-                    Onrp_emailChanging(value);
-                    ReportPropertyChanging("rp_email");
-                    _rp_email = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("rp_email");
-                    Onrp_emailChanged();
-                }
-            }
-        }
-        private global::System.String _rp_email;
-        partial void Onrp_emailChanging(global::System.String value);
-        partial void Onrp_emailChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String rp_firstname
-        {
-            get
-            {
-                return _rp_firstname;
-            }
-            set
-            {
-                if (_rp_firstname != value)
-                {
-                    Onrp_firstnameChanging(value);
-                    ReportPropertyChanging("rp_firstname");
-                    _rp_firstname = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("rp_firstname");
-                    Onrp_firstnameChanged();
-                }
-            }
-        }
-        private global::System.String _rp_firstname;
-        partial void Onrp_firstnameChanging(global::System.String value);
-        partial void Onrp_firstnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String rp_password
-        {
-            get
-            {
-                return _rp_password;
-            }
-            set
-            {
-                if (_rp_password != value)
-                {
-                    Onrp_passwordChanging(value);
-                    ReportPropertyChanging("rp_password");
-                    _rp_password = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("rp_password");
-                    Onrp_passwordChanged();
-                }
-            }
-        }
-        private global::System.String _rp_password;
-        partial void Onrp_passwordChanging(global::System.String value);
-        partial void Onrp_passwordChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String rp_lastname
-        {
-            get
-            {
-                return _rp_lastname;
-            }
-            set
-            {
-                if (_rp_lastname != value)
-                {
-                    Onrp_lastnameChanging(value);
-                    ReportPropertyChanging("rp_lastname");
-                    _rp_lastname = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("rp_lastname");
-                    Onrp_lastnameChanged();
-                }
-            }
-        }
-        private global::System.String _rp_lastname;
-        partial void Onrp_lastnameChanging(global::System.String value);
-        partial void Onrp_lastnameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String fm_name
-        {
-            get
-            {
-                return _fm_name;
-            }
-            set
-            {
-                if (_fm_name != value)
-                {
-                    Onfm_nameChanging(value);
-                    ReportPropertyChanging("fm_name");
-                    _fm_name = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("fm_name");
-                    Onfm_nameChanged();
-                }
-            }
-        }
-        private global::System.String _fm_name;
-        partial void Onfm_nameChanging(global::System.String value);
-        partial void Onfm_nameChanged();
-
-        #endregion
-
-    
     }
 
     #endregion

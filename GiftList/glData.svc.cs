@@ -24,7 +24,7 @@ namespace GiftList {
             theList.Users = new Dictionary<string, string>();
             using (xmaslistlegacyEntities data = new xmaslistlegacyEntities(this.cn)) {
                 var users = from r in data.recipients
-                            where r.Family.fm_name.ToLower() == fName.ToLower()
+                            where r.rp_Archive == 0 && r.Family.fm_name.ToLower() == fName.ToLower()
                             orderby r.rp_lastname, r.rp_firstname
                             select new { r.rp_key, r.rp_lastname, r.rp_firstname };
                 foreach (var thisUser in users) {
@@ -44,12 +44,12 @@ namespace GiftList {
 
             using (xmaslistlegacyEntities data = new xmaslistlegacyEntities(this.cn)) {
                 var count = from rCount in data.recipients
-                            where rCount.rp_fm_key == fKey
+                            where rCount.rp_fm_key == fKey && rCount.rp_Archive == 0
                             select rCount;
                 theList.TotalRecords = count.Count();
 
                 var users = from r in data.recipients
-                            where r.Family.fm_key == fKey
+                            where r.Family.fm_key == fKey && r.rp_Archive == 0
                             orderby r.rp_lastname, r.rp_firstname
                             select new {
                                 r.rp_key,
@@ -106,7 +106,7 @@ namespace GiftList {
             theList.Users = new Dictionary<string, string>();
             using (xmaslistlegacyEntities data = new xmaslistlegacyEntities(this.cn)) {
                 var users = from r in data.recipients
-                            where r.Family.fm_key == fKey
+                            where r.Family.fm_key == fKey && r.rp_Archive == 0
                             orderby r.rp_lastname, r.rp_firstname
                             select new { r.rp_key, r.rp_lastname, r.rp_firstname };
 
@@ -286,6 +286,7 @@ namespace GiftList {
                 itemData.li_year = DateTime.Now.Year.ToString();
                 itemData.li_aquired = li_GotIt == "true" ? (byte)1 : (byte)0;
                 itemData.li_GiverComment = GiverComment;
+                itemData.li_Archive = 0;
                 if (newRow)
                     itemData.li_author = user_id;
 
@@ -375,7 +376,7 @@ namespace GiftList {
             List<cListItem> list = new List<cListItem>();
 
             using (xmaslistlegacyEntities data = new xmaslistlegacyEntities(this.cn)) {
-                var l = from r in data.lists
+                var l = from r in data.lists where r.li_Archive == 0
                         select new {
                             r.li_rp_key,
                             r.li_aquired,
@@ -451,7 +452,7 @@ namespace GiftList {
             string retVal = "__no__";
             using (xmaslistlegacyEntities data = new xmaslistlegacyEntities(this.cn)) {
                 var user = from r in data.recipients
-                           where r.rp_key == userId && r.rp_password == password
+                           where r.rp_key == userId && r.rp_password == password && r.rp_Archive == 0
                            select new { r.rp_key };
                 if (user.FirstOrDefault() != null) {
                     var loginLogEntry = new LogonLog();
@@ -472,7 +473,7 @@ namespace GiftList {
             string retVal = "__no__";
             using (xmaslistlegacyEntities data = new xmaslistlegacyEntities(this.cn)) {
                 var user = from r in data.recipients
-                           where r.rp_email == eMail && r.rp_password == password
+                           where r.rp_email == eMail && r.rp_password == password && r.rp_Archive == 0
                            select new { r.rp_key };
                 var thisUser = user.FirstOrDefault();
                 if (thisUser != null) {
